@@ -19,18 +19,19 @@ public class Users {
     private String occupation;
 
     @ManyToOne
-    @JoinColumn(name="eventId")
+    @JoinColumn(name="event_id")
     @OnDelete(action= OnDeleteAction.CASCADE)
-    private Events eventId;
+    private Events event;
 
     public Users() {}
 
 
-    public Users(int userId, String personName, int age, String occupation) {
+    public Users(int userId, String personName, int age, String occupation, int eventId) {
         this.userId = userId;
         this.personName = personName;
         this.age = age;
         this.occupation = occupation;
+        this.event = new Events(eventId , "", "" , null , null);
     }
 
     public int getUserId() {
@@ -41,13 +42,14 @@ public class Users {
         this.userId = userId;
     }
 
-    public String getName() {
+    public String getPersonName() {
         return personName;
     }
 
-    public void setName(String personName) {
+    public void setPersonName(String personName) {
         this.personName = personName;
     }
+
 
     public int getAge() {
         return age;
@@ -65,6 +67,14 @@ public class Users {
         this.occupation = occupation;
     }
 
+    public Events getEvent() {
+        return event;
+    }
+
+    public void setEvent(Events event) {
+        this.event = event;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -72,6 +82,7 @@ public class Users {
                 ", personName='" + personName + '\'' +
                 ", age=" + age +
                 ", occupation='" + occupation + '\'' +
+                ", event=" + event +
                 '}';
     }
 }

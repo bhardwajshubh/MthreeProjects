@@ -19,4 +19,18 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public Users mapUserToEvent(Users users){
+        Users result = userRepository.save(users);
+        return result;
+    }
+
+    public List<UserDTO> findAllUsersOfEvent(int eventId){
+        return userRepository.findUsersByEventId(eventId);
+    }
+
+    public void deleteUser(int userId){
+        userRepository.deleteById(userId);
+    }
+
+
 }

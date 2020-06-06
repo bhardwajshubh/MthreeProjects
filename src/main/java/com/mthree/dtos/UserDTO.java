@@ -1,7 +1,5 @@
 package com.mthree.dtos;
 
-import com.mthree.models.Events;
-
 public class UserDTO {
 
     private int userId;
@@ -12,9 +10,9 @@ public class UserDTO {
 
     private String occupation;
 
-    private Events eventId;
+    private int eventId;
 
-    public UserDTO(int userId, String personName, int age, String occupation, Events eventId) {
+    public UserDTO(int userId, String personName, int age, String occupation, int eventId) {
         this.userId = userId;
         this.personName = personName;
         this.age = age;
@@ -54,11 +52,11 @@ public class UserDTO {
         this.occupation = occupation;
     }
 
-    public Events getEventId() {
+    public int getEventId() {
         return eventId;
     }
 
-    public void setEventId(Events eventId) {
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
 

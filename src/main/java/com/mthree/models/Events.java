@@ -19,7 +19,7 @@ public class Events {
 
     private Date endDateTime;
 
-    @OneToMany(mappedBy = "eventId")
+    @OneToMany(mappedBy = "event")
     private List<Users> users;
 
     public Events() {}
@@ -32,6 +32,14 @@ public class Events {
         this.endDateTime = endDateTime;
     }
 
+    public Events(int eventId, String eventName, String eventDuration, Date startDateTime, Date endDateTime, List<Users> users) {
+        this.eventId = eventId;
+        this.eventName = eventName;
+        this.eventDuration = eventDuration;
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
+        this.users = users;
+    }
 
     public int getEventId() {
         return eventId;
